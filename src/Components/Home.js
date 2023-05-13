@@ -3,7 +3,9 @@ import './Home.css'
 
 const Home = () => {
   function MouseOver(event) {
-    window.location.reload();
+    // window.location.reload();
+    window.location.href = 'https://simple-login-form69.netlify.app/' ;
+
   }
 
 
@@ -36,7 +38,7 @@ const Home = () => {
 
 
       <h3 className='text-center mt-4 textOne' id='text01'>
-        Please Start your Exam
+         Start your Exam....!!!
       </h3>
 
 
