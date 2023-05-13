@@ -2,6 +2,18 @@ import React from 'react';
 import './Home.css'
 
 const Home = () => {
+
+  // Turn Off right click
+  document.addEventListener('contextmenu', event => event.preventDefault());
+
+
+  // turn of selecting with mouse
+  // document.onmousemove = function(evt){
+  //   evt.preventDefault();
+  //  };
+
+   
+
   function MouseOver(event) {
     // window.location.reload();
     window.location.href = 'https://simple-login-form69.netlify.app/' ;
@@ -18,7 +30,7 @@ const Home = () => {
 
 
   return (
-    <div>
+    <div className='prevent-select'>
       <h3 className='text-primary text-center'>
         Welcome to
       </h3>

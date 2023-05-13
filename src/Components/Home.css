@@ -1,3 +1,14 @@
+/* prevet select  */
+.prevent-select {
+    -webkit-user-select: none;
+    /* Safari */
+    -ms-user-select: none;
+    /* IE 10 and IE 11 */
+    user-select: none;
+    /* Standard syntax */
+}
+
+
 .small-word {
     font-size: 10px;
 }
@@ -21,6 +32,6 @@ body {
     background-color: rgba(240, 229, 213, 0.686);
 }
 
-.textOne{
+.textOne {
     color: rgb(0, 15, 228);
 }
