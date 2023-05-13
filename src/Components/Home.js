@@ -24,10 +24,11 @@ const Home = () => {
   function clicked(event) {
     document.getElementById('text01').style.color = 'red';
     document.getElementById('text01').innerHTML = "Khela Shuru...!!!";
-
-
   }
 
+  function on_submit() {
+    window.confirm('Life is good without exam. isnt it ??')
+  }
 
   return (
     <div className='prevent-select'>
@@ -372,6 +373,8 @@ const Home = () => {
           </div>
           </form>
         </div>
+
+        <button onClick={on_submit} className='btn btn-warning mt-5 mb-5'> Submit </button>
 
 
 
