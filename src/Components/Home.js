@@ -49,9 +49,9 @@ const Home = () => {
 
 
 
-      <h3 className='text-center mt-4 textOne' id='text01'>
+      <h1 className='text-center mt-4 textOne' id='text01'>
          Start your Exam....!!!
-      </h3>
+      </h1>
 
 
       <div onClick={clicked} className='mt-5 question-section container'>
