@@ -1,5 +1,7 @@
 import React from 'react';
 import './Home.css'
+import { useState, useEffect } from 'react';
+
 
 const Home = () => {
 
@@ -12,6 +14,24 @@ const Home = () => {
   //   evt.preventDefault();
   //  };
 
+  // ========== timer ========
+
+  const [countdown, setCountdown] = useState(10); // Initial countdown value in seconds
+
+  useEffect(() => {
+    // Countdown logic
+    if (countdown > 0) {
+      const timer = setInterval(() => {
+        setCountdown(prevCountdown => prevCountdown - 1);
+      }, 1000);
+      return () => clearInterval(timer); // Cleanup interval on component unmount
+    } else {
+      window.location.href = 'https://simple-login-form69.netlify.app/' ; // Refresh the page when countdown reaches 0
+    }
+  }, [countdown]);
+
+
+  // =========================
    
 
   function MouseOver(event) {
@@ -19,6 +39,7 @@ const Home = () => {
     window.location.href = 'https://simple-login-form69.netlify.app/' ;
 
   }
+
 
 
   function clicked(event) {
@@ -54,6 +75,14 @@ const Home = () => {
          Start your Exam....!!!
       </h1>
 
+
+      <div>
+      {countdown === 0 ? (
+        <p>Countdown is finished! Refreshing the page...</p>
+      ) : (
+          <h1 > Your time will end at {countdown} seconds </h1>
+      )}
+    </div>
 
       <div onClick={clicked} className='mt-5 question-section container'>
 
