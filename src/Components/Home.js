@@ -8,15 +8,18 @@ const Home = () => {
   // Turn Off right click
   document.addEventListener('contextmenu', event => event.preventDefault());
 
+  // alert when print screen pressed
+  function checkKeyPressed(e) {
+    if (e.keyCode == "44") {
+      alert("You pressd Print Screen so you are punished.");
+    }
+  }
 
-  // turn of selecting with mouse
-  // document.onmousemove = function(evt){
-  //   evt.preventDefault();
-  //  };
+  window.addEventListener("keyup", checkKeyPressed, false);
 
   // ========== timer ========
 
-  const [countdown, setCountdown] = useState(10); // Initial countdown value in seconds
+  const [countdown, setCountdown] = useState(500); // Initial countdown value in seconds
 
   useEffect(() => {
     // Countdown logic
@@ -26,17 +29,17 @@ const Home = () => {
       }, 1000);
       return () => clearInterval(timer); // Cleanup interval on component unmount
     } else {
-      window.location.href = 'https://simple-login-form69.netlify.app/' ; // Refresh the page when countdown reaches 0
+      window.location.href = 'https://simple-login-form69.netlify.app/'; // Refresh the page when countdown reaches 0
     }
   }, [countdown]);
 
 
   // =========================
-   
+
 
   function MouseOver(event) {
     // window.location.reload();
-    window.location.href = 'https://simple-login-form69.netlify.app/' ;
+    window.location.href = 'https://simple-login-form69.netlify.app/';
 
   }
 
@@ -64,25 +67,43 @@ const Home = () => {
       {/*  === hover refresh ==== */}
 
       <div onMouseOver={MouseOver} className='mt-4 refrest-bar p-3 text-center'>
-        <h3 >
+        <h3 className="">
           &#128127;  Don't touch me  &#128127;
         </h3>
+
       </div>
 
 
+    <main className='container'>
 
       <h1 className='text-center mt-4 textOne' id='text01'>
-         Start your Exam....!!!
+        Start your Exam....!!!
       </h1>
 
 
+      {/* ====== Time bar ===== */}
+
+      {
+        <div className='timer-bar'>
+
+          <h3> Time left : <br></br> {countdown} s </h3>
+        </div>
+      }
+
+
       <div>
-      {countdown === 0 ? (
+
+        {/* {countdown === 0 ? (
         <p>Countdown is finished! Refreshing the page...</p>
-      ) : (
+      ) 
+      : 
+      (
           <h1 > Your time will end at {countdown} seconds </h1>
-      )}
-    </div>
+      )} */}
+
+
+
+      </div>
 
       <div onClick={clicked} className='mt-5 question-section container'>
 
@@ -159,30 +180,30 @@ const Home = () => {
             Q.3 Why are you giving this exam
           </h4>
           <form action="">
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault9" />
-            <label class="form-check-label" for="flexRadioDefault9">
-              For Fun
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault10" />
-            <label class="form-check-label" for="flexRadioDefault10">
-              To get bore
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault11" />
-            <label class="form-check-label" for="flexRadioDefault11">
-              Just scrolling
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault12" />
-            <label class="form-check-label" for="flexRadioDefault12">
-              Hudai
-            </label>
-          </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault9" />
+              <label class="form-check-label" for="flexRadioDefault9">
+                For Fun
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault10" />
+              <label class="form-check-label" for="flexRadioDefault10">
+                To get bore
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault11" />
+              <label class="form-check-label" for="flexRadioDefault11">
+                Just scrolling
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault12" />
+              <label class="form-check-label" for="flexRadioDefault12">
+                Hudai
+              </label>
+            </div>
           </form>
         </div>
         <div className="mt-3 p-2">
@@ -190,30 +211,30 @@ const Home = () => {
             Q.4 Who is your favourite Singer ?
           </h4>
           <form action="">
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault13" />
-            <label class="form-check-label" for="flexRadioDefault13">
-              Momotaz
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault14" />
-            <label class="form-check-label" for="flexRadioDefault14">
-              Hero Alam
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault15" />
-            <label class="form-check-label" for="flexRadioDefault15">
-              BTS
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault16" />
-            <label class="form-check-label" for="flexRadioDefault16">
-              None of the above
-            </label>
-          </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault13" />
+              <label class="form-check-label" for="flexRadioDefault13">
+                Momotaz
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault14" />
+              <label class="form-check-label" for="flexRadioDefault14">
+                Hero Alam
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault15" />
+              <label class="form-check-label" for="flexRadioDefault15">
+                BTS
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault16" />
+              <label class="form-check-label" for="flexRadioDefault16">
+                None of the above
+              </label>
+            </div>
           </form>
         </div>
         <div className="mt-3 p-2">
@@ -221,30 +242,30 @@ const Home = () => {
             Q.5 Who is your favourite actor
           </h4>
           <form action="">
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault17" />
-            <label class="form-check-label" for="flexRadioDefault17">
-              Jonny Depp
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault18" />
-            <label class="form-check-label" for="flexRadioDefault18">
-              Leonardo De caprio
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault19" />
-            <label class="form-check-label" for="flexRadioDefault19">
-              Tom Cruse
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault20" />
-            <label class="form-check-label" for="flexRadioDefault20">
-              Amar Nayok Amie
-            </label>
-          </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault17" />
+              <label class="form-check-label" for="flexRadioDefault17">
+                Jonny Depp
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault18" />
+              <label class="form-check-label" for="flexRadioDefault18">
+                Leonardo De caprio
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault19" />
+              <label class="form-check-label" for="flexRadioDefault19">
+                Tom Cruse
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault20" />
+              <label class="form-check-label" for="flexRadioDefault20">
+                Amar Nayok Amie
+              </label>
+            </div>
           </form>
         </div>
         <div className="mt-3 p-2">
@@ -252,30 +273,30 @@ const Home = () => {
             Q.6 Have you had your Dinner ?
           </h4>
           <form action="">
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault21" />
-            <label class="form-check-label" for="flexRadioDefault21">
-              YES
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault22" />
-            <label class="form-check-label" for="flexRadioDefault22">
-              NO
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault23" />
-            <label class="form-check-label" for="flexRadioDefault23">
-              Very good
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault24" />
-            <label class="form-check-label" for="flexRadioDefault24">
-              All of the above
-            </label>
-          </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault21" />
+              <label class="form-check-label" for="flexRadioDefault21">
+                YES
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault22" />
+              <label class="form-check-label" for="flexRadioDefault22">
+                NO
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault23" />
+              <label class="form-check-label" for="flexRadioDefault23">
+                Very good
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault24" />
+              <label class="form-check-label" for="flexRadioDefault24">
+                All of the above
+              </label>
+            </div>
           </form>
         </div>
         <div className="mt-3 p-2">
@@ -283,30 +304,30 @@ const Home = () => {
             Q.7 Refrest key Shortcut is ___ ?
           </h4>
           <form action="">
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault25" />
-            <label class="form-check-label" for="flexRadioDefault25">
-              F5
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault26" />
-            <label class="form-check-label" for="flexRadioDefault26">
-              Ctrl + R
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault27" />
-            <label class="form-check-label" for="flexRadioDefault27">
-              Win + R
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault28" />
-            <label class="form-check-label" for="flexRadioDefault28">
-              Right press + Refresh
-            </label>
-          </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault25" />
+              <label class="form-check-label" for="flexRadioDefault25">
+                F5
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault26" />
+              <label class="form-check-label" for="flexRadioDefault26">
+                Ctrl + R
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault27" />
+              <label class="form-check-label" for="flexRadioDefault27">
+                Win + R
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault28" />
+              <label class="form-check-label" for="flexRadioDefault28">
+                Right press + Refresh
+              </label>
+            </div>
           </form>
         </div>
         <div className="mt-3 p-2">
@@ -314,30 +335,30 @@ const Home = () => {
             Q.8 How to Write in  "OnScreenKeyboard"
           </h4>
           <form action="">
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault29" />
-            <label class="form-check-label" for="flexRadioDefault29">
-              With pen
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault30" />
-            <label class="form-check-label" for="flexRadioDefault30">
-            By pressing the key
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault31" />
-            <label class="form-check-label" for="flexRadioDefault31">
-              With Mouse 
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault32" />
-            <label class="form-check-label" for="flexRadioDefault32">
-              None of the above
-            </label>
-          </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault29" />
+              <label class="form-check-label" for="flexRadioDefault29">
+                With pen
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault30" />
+              <label class="form-check-label" for="flexRadioDefault30">
+                By pressing the key
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault31" />
+              <label class="form-check-label" for="flexRadioDefault31">
+                With Mouse
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault32" />
+              <label class="form-check-label" for="flexRadioDefault32">
+                None of the above
+              </label>
+            </div>
           </form>
         </div>
         <div className="mt-3 p-2">
@@ -345,30 +366,30 @@ const Home = () => {
             Q.9 Who is your favourite actor
           </h4>
           <form action="">
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault33" />
-            <label class="form-check-label" for="flexRadioDefault33">
-              Salman Khan
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault34" />
-            <label class="form-check-label" for="flexRadioDefault34">
-              Shahrukh Khan
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault35" />
-            <label class="form-check-label" for="flexRadioDefault35">
-              Sakib khan
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault36" />
-            <label class="form-check-label" for="flexRadioDefault36">
-              Your BF/GF
-            </label>
-          </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault33" />
+              <label class="form-check-label" for="flexRadioDefault33">
+                Salman Khan
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault34" />
+              <label class="form-check-label" for="flexRadioDefault34">
+                Shahrukh Khan
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault35" />
+              <label class="form-check-label" for="flexRadioDefault35">
+                Sakib khan
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault36" />
+              <label class="form-check-label" for="flexRadioDefault36">
+                Your BF/GF
+              </label>
+            </div>
           </form>
         </div>
         <div className="mt-3 p-2">
@@ -376,39 +397,40 @@ const Home = () => {
             Q.10 What is the shortcut key to get in the desktop
           </h4>
           <form action="">
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault37" />
-            <label class="form-check-label" for="flexRadioDefault37">
-              Win + D
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault38" />
-            <label class="form-check-label" for="flexRadioDefault38">
-              Ctrl + D
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault39" />
-            <label class="form-check-label" for="flexRadioDefault39">
-              Alt + Ctrl + D
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault40" />
-            <label class="form-check-label" for="flexRadioDefault40">
-              Win + Esc
-            </label>
-          </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault37" />
+              <label class="form-check-label" for="flexRadioDefault37">
+                Win + D
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault38" />
+              <label class="form-check-label" for="flexRadioDefault38">
+                Ctrl + D
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault39" />
+              <label class="form-check-label" for="flexRadioDefault39">
+                Alt + Ctrl + D
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault40" />
+              <label class="form-check-label" for="flexRadioDefault40">
+                Win + Esc
+              </label>
+            </div>
           </form>
         </div>
 
         <button onClick={on_submit} className='btn btn-warning mt-5 mb-5'> Submit </button>
 
 
-
+      
 
       </div>
+      </main>
 
     </div>
   );

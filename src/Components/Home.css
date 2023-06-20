@@ -1,4 +1,4 @@
-/* prevet select  */
+/* prevet select ( used for disabling selecting with mouse ) */
 .prevent-select {
     -webkit-user-select: none;
     /* Safari */
@@ -18,6 +18,23 @@
     position: -webkit-sticky;
     position: sticky;
     top: 0;
+}
+
+.timer-bar {
+    background-color: lightcoral;
+    position: -webkit-sticky;
+    position: relative;
+    position: sticky;
+    right: 0;
+    width: 200px;
+    height: 100px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+
 }
 
 .try-div {
